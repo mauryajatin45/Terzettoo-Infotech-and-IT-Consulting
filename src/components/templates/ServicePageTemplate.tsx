@@ -7,6 +7,10 @@ import Link from 'next/link'
 import { LucideIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
+import Script from 'next/script'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import RelatedServices from '@/components/sections/RelatedServices'
 
 export interface ServiceContent {
   hero: {
@@ -61,6 +65,16 @@ export interface ServiceContent {
       value: string
     }>
   }
+  // New "Dominance" fields
+  richTextContent?: {
+    title: string
+    content: string // HTML string for long-form content
+  }
+  relatedServices?: Array<{
+    title: string
+    href: string
+    description?: string
+  }>
   faq?: Array<{
     question: string
     answer: string
@@ -124,8 +138,58 @@ const AnimatedCounter = ({ value }: { value: string }) => {
 }
 
 export default function ServicePageTemplate({ content }: ServicePageTemplateProps) {
+  const pathname = usePathname()
+
+  // Generate Breadcrumbs
+  const breadcrumbs = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: content.hero.title, href: pathname || '' }
+  ]
+
+  // Generate Service Schema
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: content.hero.title,
+    description: content.hero.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'Terzettoo',
+      url: 'https://www.terzettoo.com',
+      logo: 'https://www.terzettoo.com/Terzettoo_logo_remove_BG.png'
+    },
+    areaServed: 'Worldwide',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: content.hero.title,
+      itemListElement: content.features.items.map((item, index) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: item.title,
+          description: item.description
+        }
+      }))
+    }
+  }
+
   return (
     <div className="bg-[#edf2f4] text-[#2b2d42] mt-16">
+      {/* Schema Injection */}
+      <Script
+        id="service-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+
+      {/* Breadcrumbs */}
+      <div className="bg-[#d90429]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={breadcrumbs} className="!text-white" />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br bg-[#d90429]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,7 +253,8 @@ export default function ServicePageTemplate({ content }: ServicePageTemplateProp
           </div>
         </div>
       </section>
-      {/* Written Content & Facts Section */}
+
+      {/* Written Content & Facts Section (Legacy) */}
       {content.writtenContent && (
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -414,6 +479,31 @@ export default function ServicePageTemplate({ content }: ServicePageTemplateProp
           </div>
         </div>
       </section>
+
+      {/* Rich Content Section (New for Dominance) */}
+      {content.richTextContent && (
+        <section className="py-20 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold mb-8 text-[#2b2d42]">{content.richTextContent.title}</h2>
+              <div 
+                className="prose prose-lg max-w-none prose-headings:text-[#2b2d42] prose-a:text-[#d90429] prose-strong:text-[#2b2d42]"
+                dangerouslySetInnerHTML={{ __html: content.richTextContent.content }} 
+              />
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Services Section (New for Dominance) */}
+      {content.relatedServices && content.relatedServices.length > 0 && (
+        <RelatedServices services={content.relatedServices} />
+      )}
 
       {/* CTA Section */}
       <section className="py-20 bg-[#d90429] text-white">

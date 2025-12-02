@@ -127,7 +127,42 @@ const mobileAppDevelopmentContent: ServiceContent = {
       { label: 'Expert Developers', value: '50+' },
       { label: 'Years in Business', value: '10+' }
     ]
-  }
+  },
+  richTextContent: {
+    title: 'Mastering Mobile: A Strategic Approach to App Development',
+    content: `
+      <h3>Native vs. Cross-Platform: Making the Right Choice</h3>
+      <p>Choosing between native (Swift/Kotlin) and cross-platform (React Native/Flutter) development is a critical decision. We help you weigh the pros and cons based on your performance needs, budget, and time-to-market goals.</p>
+      
+      <h3>User-Centric Design Philosophy</h3>
+      <p>Great apps are built on empathy. Our design process involves:</p>
+      <ul>
+        <li><strong>User Research:</strong> Understanding your audience's pain points and behaviors.</li>
+        <li><strong>Prototyping:</strong> Iterative wireframing to test flows before writing code.</li>
+        <li><strong>UI Design:</strong> Crafting pixel-perfect interfaces that delight users.</li>
+      </ul>
+
+      <h3>Security & Scalability</h3>
+      <p>Mobile security is non-negotiable. We implement robust encryption, secure authentication (OAuth, Biometrics), and follow OWASP mobile security best practices to protect your user data. Our backend architectures are designed to scale effortlessly from 1,000 to 1,000,000 users.</p>
+    `
+  },
+  relatedServices: [
+    {
+      title: 'Web Development',
+      href: '/web-development',
+      description: 'Complement your app with a powerful marketing website or web portal.'
+    },
+    {
+      title: 'UI/UX Design',
+      href: '/ui-ux-development',
+      description: 'Ensure your app is intuitive, accessible, and visually stunning.'
+    },
+    {
+      title: 'Cloud Services',
+      href: '/amazon-web-services-aws-development',
+      description: 'Reliable cloud infrastructure to power your app\'s backend.'
+    }
+  ]
 }
 
 export default function MobileAppDevelopmentClient() {

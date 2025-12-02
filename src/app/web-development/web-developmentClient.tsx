@@ -127,7 +127,43 @@ const webDevelopmentContent: ServiceContent = {
       { label: 'Web Experts', value: '40+' },
       { label: 'Years in Business', value: '12+' }
     ]
-  }
+  },
+  richTextContent: {
+    title: 'Comprehensive Guide to Web Development Services',
+    content: `
+      <h3>The Importance of Professional Web Development</h3>
+      <p>In today's digital-first world, your website is often the first interaction a potential customer has with your brand. A professionally developed website does more than just look good; it acts as a powerful sales tool, a customer support hub, and a brand ambassador 24/7.</p>
+      
+      <h3>Our Development Methodology</h3>
+      <p>At Terzettoo, we follow a rigorous development lifecycle to ensure excellence:</p>
+      <ul>
+        <li><strong>Discovery:</strong> We dive deep into your business goals and user needs.</li>
+        <li><strong>Architecture:</strong> We plan a scalable technical foundation using modern stacks like Next.js and React.</li>
+        <li><strong>Development:</strong> Our code is clean, modular, and well-documented.</li>
+        <li><strong>Optimization:</strong> We obsess over Core Web Vitals, ensuring lightning-fast load times.</li>
+      </ul>
+
+      <h3>Why SEO Matters in Development</h3>
+      <p>We don't just build websites; we build search-engine-friendly digital assets. From semantic HTML5 to structured data implementation, every line of code is written with SEO in mind. This ensures that your site doesn't just exist but dominates search results for your target keywords.</p>
+    `
+  },
+  relatedServices: [
+    {
+      title: 'Mobile App Development',
+      href: '/mobile-app-development',
+      description: 'Extend your reach with native iOS and Android applications.'
+    },
+    {
+      title: 'SEO Services',
+      href: '/seo-services',
+      description: 'Boost your visibility and drive organic traffic to your new website.'
+    },
+    {
+      title: 'UI/UX Design',
+      href: '/ui-ux-development',
+      description: 'Create intuitive and engaging user experiences.'
+    }
+  ]
 }
 
 export default function WebDevelopmentClient() {

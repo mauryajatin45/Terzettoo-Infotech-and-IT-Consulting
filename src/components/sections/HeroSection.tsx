@@ -55,7 +55,7 @@ export default function HeroSection() {
           >
             <Image
               src="/image/Hero/Introduction1.png"
-              alt="Our Services Overview"
+              alt="Terzettoo Full Stack Software Development Services Overview"
               width={600}
               height={600}
               className="rounded-lg"

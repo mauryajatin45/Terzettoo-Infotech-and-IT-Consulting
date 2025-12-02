@@ -127,7 +127,39 @@ const seoServicesContent: ServiceContent = {
       { label: 'SEO Experts', value: '25+' },
       { label: 'Years in Business', value: '10+' }
     ]
-  }
+  },
+  richTextContent: {
+    title: 'Data-Driven SEO: Beyond Keywords',
+    content: `
+      <h3>The Three Pillars of Modern SEO</h3>
+      <p>Effective SEO is a tripod standing on three legs: Technical Health, Content Relevance, and Authority.</p>
+      <ul>
+        <li><strong>Technical SEO:</strong> We ensure your site is crawlable, fast, and secure. This includes schema markup, core web vitals optimization, and mobile-first indexing.</li>
+        <li><strong>Content Strategy:</strong> We create content that answers user intent, not just stuffs keywords. Our "Topic Cluster" approach establishes you as a subject matter authority.</li>
+        <li><strong>Off-Page Authority:</strong> We build high-quality backlink profiles through ethical outreach and digital PR.</li>
+      </ul>
+
+      <h3>Transparency & Reporting</h3>
+      <p>SEO isn't magic; it's math and psychology. We provide transparent, real-time reporting dashboards so you can see exactly where your traffic is coming from and how it's converting. No vanity metrics—just ROI.</p>
+    `
+  },
+  relatedServices: [
+    {
+      title: 'Web Development',
+      href: '/web-development',
+      description: 'Ensure your website code is optimized for search engines from the ground up.'
+    },
+    {
+      title: 'Content Marketing',
+      href: '/content-marketing-and-strategy',
+      description: 'Fuel your SEO with high-quality, engaging content.'
+    },
+    {
+      title: 'PPC Advertising',
+      href: '/ppc-advertising',
+      description: 'Combine SEO with paid search for immediate visibility.'
+    }
+  ]
 }
 
 export default function SeoServicesClient() {

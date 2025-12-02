@@ -48,7 +48,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'add-your-google-site-verification-here',
+    google: 'add-your-google-site-verification-here', // Note: User provided DNS CNAME verification. This placeholder is for HTML tag verification.
   },
   metadataBase: new URL('https://www.terzettoo.com'),
 }
@@ -67,6 +67,29 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/Terzettoo_logo_remove_BG.png" type="image/png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Terzettoo',
+              url: 'https://www.terzettoo.com',
+              logo: 'https://www.terzettoo.com/Terzettoo_logo_remove_BG.png',
+              sameAs: [
+                'https://linkedin.com/company/terzettoo',
+                'https://www.instagram.com/terzettoo_official/',
+                'https://twitter.com/terzettoo',
+                'https://www.facebook.com/profile.php?id=61578955508887',
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+91 70690 13316',
+                contactType: 'customer service',
+              },
+            }),
+          }}
+        />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DN9RC5XEDP"
@@ -83,7 +106,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.className} min-h-screen bg-[#edf2f4] text-[#2b2d42] antialiased`}>
+      <body className={`${inter.className} min-h-screen bg-[#edf2f4] text-[#2b2d42] antialiased`} suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
