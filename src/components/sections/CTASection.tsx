@@ -1,10 +1,11 @@
 "use client";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare, Calendar, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const CTASection = () => {
+const CTASection = memo(() => {
   const benefits = [
     "Free consultation and project estimation",
     "Dedicated project manager and team",
@@ -131,50 +132,23 @@ const CTASection = () => {
                     Trusted by 50+ companies
                   </p>
                   <div className="flex flex-wrap justify-center gap-4">
-                    {/* Company 1 */}
-                    <Image
-                      src="/image/Others/gujarat-terce-laboratories-ltd.png"
-                      alt="Company 1"
-                      width={80}
-                      height={32}
-                      className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                    />
-
-                    {/* Company 2 */}
-                    <Image
-                      src="/image/Others/usp.jpg"
-                      alt="Company 2"
-                      width={80}
-                      height={32}
-                      className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                    />
-
-                    {/* Company 3 */}
-                    <Image
-                      src="/image/Others/datec.png"
-                      alt="Company 3"
-                      width={80}
-                      height={32}
-                      className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                    />
-
-                    {/* Company 4 */}
-                    <Image
-                      src="/image/Others/Nordic.png"
-                      alt="Company 4"
-                      width={80}
-                      height={32}
-                      className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                    />
-
-                    {/* Company 5 */}
-                    <Image
-                      src="/image/Others/sms.png"
-                      alt="Company 5"
-                      width={80}
-                      height={32}
-                      className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                    />
+                    {[
+                      { src: "/image/Others/gujarat-terce-laboratories-ltd.png", alt: "Gujarat Terce Laboratories - Trusted Client" },
+                      { src: "/image/Others/usp.jpg", alt: "USP - Trusted Client" },
+                      { src: "/image/Others/datec.png", alt: "Datec - Trusted Client" },
+                      { src: "/image/Others/Nordic.png", alt: "Nordic - Trusted Client" },
+                      { src: "/image/Others/sms.png", alt: "SMS - Trusted Client" },
+                    ].map((company) => (
+                      <Image
+                        key={company.src}
+                        src={company.src}
+                        alt={company.alt}
+                        width={80}
+                        height={32}
+                        loading="lazy"
+                        className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -201,6 +175,8 @@ const CTASection = () => {
       </div>
     </section>
   );
-};
+})
 
-export default CTASection;
+CTASection.displayName = 'CTASection'
+
+export default CTASection

@@ -1,8 +1,8 @@
 'use client'
+import { memo, useEffect, useRef, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Star, Quote } from 'lucide-react'
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
 
 const testimonials = [
   {
@@ -62,7 +62,7 @@ const testimonials = [
   },
 ]
 
-const TestimonialsSection = () => {
+const TestimonialsSection = memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [cardsToShow, setCardsToShow] = useState(3)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -70,23 +70,22 @@ const TestimonialsSection = () => {
 
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
-  useEffect(() => {
-    const updateCardsToShow = () => {
-      const width = window.innerWidth
-      if (width < 640) {
-        setCardsToShow(1)
-      } else if (width < 1024) {
-        setCardsToShow(2)
-      } else {
-        setCardsToShow(3)
-      }
+  const updateCardsToShow = useCallback(() => {
+    const width = window.innerWidth
+    if (width < 640) {
+      setCardsToShow(1)
+    } else if (width < 1024) {
+      setCardsToShow(2)
+    } else {
+      setCardsToShow(3)
     }
+  }, [])
 
+  useEffect(() => {
     updateCardsToShow()
     window.addEventListener('resize', updateCardsToShow)
-
     return () => window.removeEventListener('resize', updateCardsToShow)
-  }, [])
+  }, [updateCardsToShow])
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
@@ -198,6 +197,8 @@ const TestimonialsSection = () => {
       </div>
     </section>
   )
-}
+})
+
+TestimonialsSection.displayName = 'TestimonialsSection'
 
 export default TestimonialsSection

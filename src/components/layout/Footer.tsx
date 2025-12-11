@@ -1,11 +1,12 @@
-'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Facebook, Youtube } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Facebook } from 'lucide-react'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+  
   return (
-    <footer className="bg-[#d90429] text-white relative overflow-hidden">
+    <footer className="bg-[#d90429] text-white relative overflow-hidden" role="contentinfo">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-white/30"></div>
@@ -35,25 +36,25 @@ const Footer = () => {
             </p>
 
             {/* Social Media Links */}
-            <div className="flex space-x-5 pt-2">
+            <nav aria-label="Social media links" className="flex space-x-5 pt-2">
               {[
-                { icon: Linkedin, url: "https://linkedin.com/company/terzettoo", label: "LinkedIn" },
-                { icon: Instagram, url: "https://www.instagram.com/terzettoo_official/", label: "Instagram" },
-                { icon: Twitter, url: "https://twitter.com/terzettoo", label: "Twitter" },
-                { icon: Facebook, url: "https://www.facebook.com/profile.php?id=61578955508887", label: "Facebook" },
-              ].map(({ icon: Icon, url, label }, index) => (
+                { icon: Linkedin, url: "https://linkedin.com/company/terzettoo", label: "Follow us on LinkedIn" },
+                { icon: Instagram, url: "https://www.instagram.com/terzettoo_official/", label: "Follow us on Instagram" },
+                { icon: Twitter, url: "https://twitter.com/terzettoo", label: "Follow us on Twitter" },
+                { icon: Facebook, url: "https://www.facebook.com/profile.php?id=61578955508887", label: "Follow us on Facebook" },
+              ].map(({ icon: Icon, url, label }) => (
                 <Link
-                  key={index}
+                  key={url}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="!text-white/80 hover:!text-white !transition-colors !duration-300 transform hover:-translate-y-1"
                   aria-label={label}
                 >
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-6 w-6" aria-hidden="true" />
                 </Link>
               ))}
-            </div>
+            </nav>
           </div>
 
           {/* Services Column */}
@@ -138,7 +139,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="!text-white/80 text-sm">
-            © {new Date().getFullYear()} Terzettoo. All rights reserved.
+            © {currentYear} Terzettoo. All rights reserved.
           </p>
 
           <div className="flex flex-wrap justify-center gap-6 mt-4 md:mt-0">

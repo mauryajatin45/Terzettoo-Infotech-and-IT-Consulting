@@ -1,4 +1,5 @@
 'use client'
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 import {
   Globe,
@@ -50,9 +51,9 @@ const services = [
   },
 ]
 
-const ServicesOverview = () => {
+const ServicesOverview = memo(() => {
   return (
-    <section className="py-20 bg-[#edf2f4] text-[#2b2d42]">
+    <section className="py-20 bg-[#edf2f4] text-[#2b2d42]" aria-label="Our Services Overview">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -125,6 +126,8 @@ const ServicesOverview = () => {
       </div>
     </section>
   )
-}
+})
+
+ServicesOverview.displayName = 'ServicesOverview'
 
 export default ServicesOverview

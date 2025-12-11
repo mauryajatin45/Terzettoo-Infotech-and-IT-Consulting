@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { CareerClient } from './careerClient'
 
 export const metadata: Metadata = {
@@ -27,10 +28,13 @@ export default function CareerPage() {
       <div className="relative mt-16 bg-gray-900 overflow-hidden">
         {/* Background image with overlay */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/image/Others/Careers.jpeg"
             alt="Diverse team collaborating in modern office"
-            className="object-cover opacity-50 w-full h-full"
+            fill
+            className="object-cover opacity-50"
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-gray-900/20" />
         </div>

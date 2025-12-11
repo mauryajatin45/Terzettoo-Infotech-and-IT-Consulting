@@ -163,7 +163,7 @@ export default function ServicePageTemplate({ content }: ServicePageTemplateProp
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: content.hero.title,
-      itemListElement: content.features.items.map((item, index) => ({
+      itemListElement: content.features.items.map((item) => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',

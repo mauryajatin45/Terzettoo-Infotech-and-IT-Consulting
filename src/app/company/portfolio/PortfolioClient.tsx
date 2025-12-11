@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -141,14 +141,15 @@ const projects: Project[] = [
   },
 ]
 
-const categories = ['All', 'Web Development', 'Mobile Development', 'Full Stack']
+const categories = ['All', 'Web Development', 'Mobile Development', 'Full Stack'] as const
 
 export default function PortfolioClient() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
 
-  useEffect(() => {
-    // Reserved for future side-effects (e.g., analytics on filter change)
-  }, [])
+  // Filter handler for category buttons
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+  }
 
   const filteredProjects =
     selectedCategory === 'All'
@@ -219,6 +220,23 @@ export default function PortfolioClient() {
             <p className="text-lg max-w-2xl mx-auto text-[#8d99ae]">
               Discover our handpicked selection of projects that showcase our expertise across different domains.
             </p>
+          </div>
+
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  selectedCategory === category
+                    ? 'bg-[#d90429] text-white shadow-lg'
+                    : 'bg-gray-100 text-[#2b2d42] hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
 
           {/* Projects Grid - 3 columns on large screens */}

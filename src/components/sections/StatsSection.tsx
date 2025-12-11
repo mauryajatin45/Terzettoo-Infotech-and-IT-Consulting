@@ -1,21 +1,26 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, memo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const AnimatedNumber = ({
-  value,
-  isInView,
-  isPercentage = false,
-  isRating = false
-}: {
+// Easing function for smooth animation
+const easeOutQuad = (t: number): number => t * (2 - t)
+
+interface AnimatedNumberProps {
   value: number
   isInView: boolean
   isPercentage?: boolean
   isRating?: boolean
-}) => {
+}
+
+const AnimatedNumber = memo(({
+  value,
+  isInView,
+  isPercentage = false,
+  isRating = false
+}: AnimatedNumberProps) => {
   const [displayValue, setDisplayValue] = useState(0)
 
   useEffect(() => {
@@ -24,29 +29,30 @@ const AnimatedNumber = ({
       return
     }
 
-    const duration = 2000 // Animation duration in ms
+    const duration = 2000
     const startTime = performance.now()
-    const startValue = 0
-    const endValue = value
+    let animationId: number
 
     const animate = (currentTime: number) => {
       const elapsedTime = currentTime - startTime
       const progress = Math.min(elapsedTime / duration, 1)
-
       const easedProgress = easeOutQuad(progress)
-      const currentValue = startValue + (endValue - startValue) * easedProgress
+      const currentValue = value * easedProgress
 
       setDisplayValue(currentValue)
 
       if (progress < 1) {
-        requestAnimationFrame(animate)
+        animationId = requestAnimationFrame(animate)
       }
     }
 
-    requestAnimationFrame(animate)
+    animationId = requestAnimationFrame(animate)
+    
+    return () => {
+      if (animationId) cancelAnimationFrame(animationId)
+    }
   }, [isInView, value])
 
-  // Format the displayed value based on type
   const formattedValue = isRating
     ? `${displayValue.toFixed(1)}/5`
     : isPercentage
@@ -54,21 +60,13 @@ const AnimatedNumber = ({
       : `${Math.round(displayValue)}+`
 
   return <>{formattedValue}</>
-}
+})
 
-// Easing function for smooth animation
-const easeOutQuad = (t: number) => {
-  return t * (2 - t)
-}
+AnimatedNumber.displayName = 'AnimatedNumber'
 
 const StatsSection = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
-  // Removed unused scrollYProgress
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start end", "end start"]
-  // })
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -123,41 +121,42 @@ const StatsSection = () => {
   )
 }
 
-const SocialReviewsSection = () => {
-  const reviewData = [
-    {
-      platform: 'Clutch',
-      iconUrl: '/image/Stats/clutch.png', // Add your image path here
-      rating: 4.9,
-      stars: '★★★★★',
-      review: 'Exceptional service and attention to detail. Would highly recommend!',
-      link: 'https://clutch.co/profile/terzettoo'
-    },
-    {
-      platform: 'GoodFirms',
-      iconUrl: '/image/Stats/Goodfirms.jpg', // Add your image path here
-      rating: 5,
-      stars: '★★★★★',
-      review: 'Their team delivered beyond our expectations. Truly professionals.',
-      link: '#'
-    },
-    {
-      platform: 'Google',
-      iconUrl: '/image/Stats/Google.png', // Add your image path here
-      rating: 4.9,
-      stars: '★★★★☆',
-      review: 'Reliable and innovative solutions. Great communication throughout.',
-      link: '#'
-    },
-    {
-      platform: 'Glassdoor',
-      iconUrl: '/image/Stats/glassdoor.webp', // Add your image path here
-      rating: 4.3,
-      stars: '★★★★☆',
-      review: 'Great workplace culture and challenging projects. Love working here!',
-      link: '#'
-    }
-  ]
+const reviewData = [
+  {
+    platform: 'Clutch',
+    iconUrl: '/image/Stats/clutch.png',
+    rating: 4.9,
+    stars: '★★★★★',
+    review: 'Exceptional service and attention to detail. Would highly recommend!',
+    link: 'https://clutch.co/profile/terzettoo'
+  },
+  {
+    platform: 'GoodFirms',
+    iconUrl: '/image/Stats/Goodfirms.jpg',
+    rating: 5,
+    stars: '★★★★★',
+    review: 'Their team delivered beyond our expectations. Truly professionals.',
+    link: '#'
+  },
+  {
+    platform: 'Google',
+    iconUrl: '/image/Stats/Google.png',
+    rating: 4.9,
+    stars: '★★★★☆',
+    review: 'Reliable and innovative solutions. Great communication throughout.',
+    link: '#'
+  },
+  {
+    platform: 'Glassdoor',
+    iconUrl: '/image/Stats/glassdoor.webp',
+    rating: 4.3,
+    stars: '★★★★☆',
+    review: 'Great workplace culture and challenging projects. Love working here!',
+    link: '#'
+  }
+] as const
+
+const SocialReviewsSection = memo(() => {
 
   return (
     <section className="bg-[#d90429] py-12 text-white relative rounded-b-3xl">
@@ -230,16 +229,19 @@ const SocialReviewsSection = () => {
       </div>
     </section>
   )
-}
+})
 
+SocialReviewsSection.displayName = 'SocialReviewsSection'
 
-const StatsWithReviews = () => {
+const StatsWithReviews = memo(() => {
   return (
     <div className="relative">
       <StatsSection />
       <SocialReviewsSection />
     </div>
   )
-}
+})
+
+StatsWithReviews.displayName = 'StatsWithReviews'
 
 export default StatsWithReviews
