@@ -61,7 +61,7 @@ export default function Chatbot() {
             if (line.startsWith('0:')) {
               try {
                 newText += JSON.parse(line.substring(2));
-              } catch (e) {}
+              } catch {}
             }
           }
           if (newText) {
