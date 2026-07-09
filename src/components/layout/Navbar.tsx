@@ -359,7 +359,7 @@ const Navbar = () => {
                           className="object-contain"
                         />
                       </div>
-                      <span className="font-medium group-hover:text-[#d90429] transition-colors">Scrubb (Apple 5.1.1 Delete)</span>
+                      <span className="font-medium group-hover:text-[#d90429] transition-colors">Delete Account (Apple 5.1.1 Delete)</span>
                     </Link>
                   </motion.div>
                 )}
@@ -572,7 +572,7 @@ const Navbar = () => {
                   }`}
                 onClick={() => setIsOpen(false)}
               >
-                Products: Scrubb
+                Products: Delete Account
               </Link>
               <Link
                 href="/company/about"

@@ -41,7 +41,7 @@ export default function ScrubbLandingPage() {
             >
               <Image 
                 src="/image/Scrubb/Scrubb_Logo_Transparent.png" 
-                alt="Scrubb Logo" 
+                alt="Delete Account Logo" 
                 fill 
                 className="object-contain"
               />
@@ -95,10 +95,10 @@ export default function ScrubbLandingPage() {
                 The Regulatory Wall
               </h2>
               <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-                Getting an iOS app rejected due to Apple Guideline 5.1.1 is frustrating. Scrubb fixes this by letting you add a native account deletion block to your storefront without coding.
+                Getting an iOS app rejected due to Apple Guideline 5.1.1 is frustrating. Delete Account fixes this by letting you add a native account deletion block to your storefront without coding.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Beyond instant compliance for Apple and GDPR, Scrubb helps you manage churn. You can set a custom grace period before permanent deletion, collect exit feedback, and trigger webhooks to erase customer data across your other platforms. Secure your store and pass your app reviews effortlessly without impacting page speed.
+                Beyond instant compliance for Apple and GDPR, Delete Account helps you manage churn. You can set a custom grace period before permanent deletion, collect exit feedback, and trigger webhooks to erase customer data across your other platforms. Secure your store and pass your app reviews effortlessly without impacting page speed.
               </p>
               <div className="flex items-start space-x-4 p-6 bg-red-50 rounded-2xl border border-red-100">
                 <ShieldAlert className="w-8 h-8 text-red-500 shrink-0 mt-1" />
@@ -151,7 +151,7 @@ export default function ScrubbLandingPage() {
               <p className="text-lg text-gray-600 mb-8">
                 Existing competitors focus on heavy, bloated enterprise GDPR suites with complex multi-language dashboards, charging anywhere from $5 to $15+ per month. 
                 <br/><br/>
-                We built Scrubb to be a plug-and-play theme block that works instantly. Marketed explicitly as an Apple App Store Approval Tool, it&apos;s the specific painkiller you need without the bloat you don&apos;t.
+                We built Delete Account to be a plug-and-play theme block that works instantly. Marketed explicitly as an Apple App Store Approval Tool, it&apos;s the specific painkiller you need without the bloat you don&apos;t.
               </p>
               <ul className="space-y-6">
                 {[
@@ -203,7 +203,7 @@ export default function ScrubbLandingPage() {
                 </ul>
 
                 <button className="w-full py-4 bg-white text-gray-900 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors flex items-center justify-center group">
-                  Get Scrubb on Shopify
+                  Get Delete Account on Shopify
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform text-[#d90429]" />
                 </button>
               </div>
