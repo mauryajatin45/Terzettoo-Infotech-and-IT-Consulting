@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Terzettoo Infotech',
     images: [
       {
-        url: 'https://www.terzettoo.com/image/Scrubb/Scrubb_Logo.png',
+        url: 'https://www.terzettoo.com/image/DeleteAccount/DeleteAccount.png',
         width: 800,
         height: 600,
         alt: 'Delete Account Logo',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Delete Account | Shopify Compliance',
     description: 'Pass Apple App Store Guideline 5.1.1v instantly. Add a native account deletion block to your Shopify storefront.',
-    images: ['https://www.terzettoo.com/image/Scrubb/Scrubb_Logo.png'],
+    images: ['https://www.terzettoo.com/image/DeleteAccount/DeleteAccount.png'],
   },
 }
 

@@ -40,7 +40,7 @@ export default function ScrubbLandingPage() {
               className="mb-8 relative w-48 h-16 sm:w-64 sm:h-20"
             >
               <Image 
-                src="/image/Scrubb/Scrubb_Logo_Transparent.png" 
+                src="/image/DeleteAccount/DeleteAccount.png" 
                 alt="Delete Account Logo" 
                 fill 
                 className="object-contain"

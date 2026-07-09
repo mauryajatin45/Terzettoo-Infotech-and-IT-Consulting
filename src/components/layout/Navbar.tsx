@@ -353,8 +353,8 @@ const Navbar = () => {
                     >
                       <div className="w-8 h-8 relative mr-3 flex-shrink-0">
                         <Image 
-                          src="/image/Scrubb/Scrubb_Logo_Transparent.png" 
-                          alt="Scrubb Logo" 
+                          src="/image/DeleteAccount/DeleteAccount.png" 
+                          alt="Delete Account Logo" 
                           fill 
                           className="object-contain"
                         />
