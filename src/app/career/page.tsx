@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Career Opportunities | Join Our Team | Terzettoo',
     description: 'Join our innovative team and build your future with Terzettoo.',
-    url: 'https://www.terzettoo.com/careers',
+    url: 'https://www.terzettoo.com/career',
     siteName: 'Terzettoo',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.terzettoo.com/careers',
+    canonical: 'https://www.terzettoo.com/career',
   },
 }
 

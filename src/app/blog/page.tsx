@@ -7,6 +7,16 @@ export const metadata: Metadata = {
   description: 'Explore Terzettoo\'s blog for insights on web development, app development, UI/UX design, SEO, and digital marketing. Your trusted tech partner.',
   keywords: 'Terzettoo, IT solutions, web development, app development, UI/UX design, SEO, digital marketing, tech partner',
   authors: [{ name: 'Terzettoo' }],
+  alternates: {
+    canonical: 'https://www.terzettoo.com/blog',
+  },
+  openGraph: {
+    title: 'Terzettoo Blog - IT Solutions & Technology Insights',
+    description: 'Expert perspectives on web development, mobile apps, UI/UX design, and digital growth from the Terzettoo team.',
+    url: 'https://www.terzettoo.com/blog',
+    siteName: 'Terzettoo',
+    type: 'website',
+  },
 };
 
 export default function BlogPage() {

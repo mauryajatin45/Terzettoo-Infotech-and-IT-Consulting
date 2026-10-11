@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terms of Service | Terzettoo',
     description: 'Read the Terms of Service governing the use of Terzettoo products and services.',
-    url: 'https://www.terzettoo.com/terms-of-service',
+    url: 'https://www.terzettoo.com/company/terms',
     siteName: 'Terzettoo',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.terzettoo.com/terms-of-service',
+    canonical: 'https://www.terzettoo.com/company/terms',
   },
   robots: {
     index: true,

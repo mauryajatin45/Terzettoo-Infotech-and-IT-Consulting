@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Privacy Policy - Delete Account | Terzettoo',
   description: 'Privacy Policy for Delete Account: Apple 5.1.1 Delete Shopify App',
+  alternates: {
+    canonical: 'https://www.terzettoo.com/products/scrubb/privacy',
+  },
 }
 
 export default function ScrubbPrivacyPolicy() {

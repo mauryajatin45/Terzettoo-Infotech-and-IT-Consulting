@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "Terzettoo"
   ],
   authors: [{ name: "Terzettoo Marketing Team" }],
+  alternates: {
+    canonical: "https://www.terzettoo.com/blog/seo-digital-marketing-strategies",
+  },
   openGraph: {
     title: "Boost Your Online Presence with Expert SEO & Digital Marketing | Terzettoo",
     description: "Discover how Terzettoo's tailored marketing solutions can increase your online visibility and customer acquisition.",
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Terzettoo",
     images: [
       {
-        url: "https://www.terzettoo.com/images/seo-digital-marketing.jpg",
+        url: "https://www.terzettoo.com/image/blog/seo-digital-marketing-strategies.png",
         width: 1200,
         height: 630,
         alt: "SEO & Digital Marketing Strategies",
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Boost Your Online Presence with Expert SEO & Digital Marketing | Terzettoo",
     description: "Proven strategies to enhance your online visibility and attract more customers",
-    images: ["https://www.terzettoo.com/images/seo-digital-marketing.jpg"],
+    images: ["https://www.terzettoo.com/image/blog/seo-digital-marketing-strategies.png"],
     creator: "@terzettoo",
   },
   category: "Marketing",

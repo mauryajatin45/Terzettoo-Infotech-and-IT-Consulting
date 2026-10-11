@@ -88,8 +88,10 @@ export default function RootLayout({
               foundingDate: '2022',
               address: {
                 '@type': 'PostalAddress',
+                streetAddress: 'Office No. 809, Plot No.-146/2, MOUNT BIZPARK, Vaishnodevi Circle, Sardar Patel Ring Rd, near Malabar Exotica, opp. Dwarkesh Opulence, Tragad',
                 addressLocality: 'Ahmedabad',
                 addressRegion: 'Gujarat',
+                postalCode: '382470',
                 addressCountry: 'IN',
               },
               sameAs: [
@@ -100,7 +102,7 @@ export default function RootLayout({
               ],
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+91-70690-13316',
+                telephone: '+91-7016569676',
                 contactType: 'customer service',
                 availableLanguage: ['English', 'Hindi'],
               },
@@ -137,7 +139,6 @@ export default function RootLayout({
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '1256998902924411');
-              fbq('track', 'PageView');
             `,
           }}
         />

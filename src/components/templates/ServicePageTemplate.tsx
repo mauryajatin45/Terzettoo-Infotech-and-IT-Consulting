@@ -212,7 +212,7 @@ export default function ServicePageTemplate({ content }: ServicePageTemplateProp
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-[#ffffff] !text-[d90429] font-bold rounded-xl hover:bg-[#dfdddd] transition-all duration-300 transform shadow-lg"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#ffffff] !text-[#d90429] font-bold rounded-xl hover:bg-[#dfdddd] transition-all duration-300 transform shadow-lg"
                 >
                   {content.hero.primaryCTA}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -238,9 +238,8 @@ export default function ServicePageTemplate({ content }: ServicePageTemplateProp
                     <Image
                       src={content.hero.heroImage}
                       alt="Hero Image"
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-xl"
+                      fill
+                      className="rounded-xl object-cover"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-white text-2xl">

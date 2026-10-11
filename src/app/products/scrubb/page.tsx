@@ -212,20 +212,20 @@ export default function ScrubbLandingPage() {
         </div>
       </section>
 
-      {/* Footer / Privacy Policy Link */}
-      <footer className="mt-auto py-8 bg-white border-t border-gray-200">
+      {/* Product Compliance & Support Links */}
+      <div className="py-6 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Terzettoo Infotech. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 sm:mt-0">
-            <Link href="/products/scrubb/privacy" className="hover:text-[#d90429] transition-colors font-medium">
-              Privacy Policy
+          <p className="text-gray-500 font-medium">Delete Account — App Store 5.1.1 &amp; GDPR Compliance Tool</p>
+          <div className="flex space-x-6 mt-3 sm:mt-0">
+            <Link href="/products/scrubb/privacy" className="text-[#d90429] hover:underline transition-colors font-medium">
+              Product Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-[#d90429] transition-colors font-medium">
-              Support
+            <Link href="/contact" className="text-[#d90429] hover:underline transition-colors font-medium">
+              Merchant Support
             </Link>
           </div>
         </div>
-      </footer>
+      </div>
     </div>
   )
 }

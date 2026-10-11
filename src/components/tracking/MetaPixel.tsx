@@ -119,13 +119,26 @@ function MetaPixelTracker() {
 // Helper function to categorize pages
 function getPageCategory(pathname: string): string {
   if (pathname === '/') return 'Home'
-  if (pathname.startsWith('/services')) return 'Services'
-  if (pathname.startsWith('/about')) return 'About'
+  if (
+    pathname.startsWith('/services') ||
+    pathname.includes('-development') ||
+    pathname.includes('-marketing') ||
+    pathname.includes('-services') ||
+    pathname.includes('-planning') ||
+    pathname.includes('-analytics') ||
+    pathname.includes('ai-ml') ||
+    pathname.includes('computer-vision')
+  ) {
+    return 'Services'
+  }
+  if (pathname.startsWith('/company/about') || pathname.startsWith('/about')) return 'About'
   if (pathname.startsWith('/contact')) return 'Contact'
-  if (pathname.startsWith('/portfolio')) return 'Portfolio'
+  if (pathname.startsWith('/company/portfolio') || pathname.startsWith('/portfolio')) return 'Portfolio'
+  if (pathname.startsWith('/career')) return 'Career'
   if (pathname.startsWith('/blog')) return 'Blog'
-  if (pathname.startsWith('/news')) return 'News'
-  return 'Other'
+  if (pathname.startsWith('/products')) return 'Products'
+  if (pathname.startsWith('/company/faq')) return 'FAQ'
+  return 'Company'
 }
 
 // Main MetaPixel component with user activity tracking

@@ -16,7 +16,9 @@ export const metadata: Metadata = {
     "custom software for startups",
     "Terzettoo"
   ],
-  authors: [{ name: "Terzettoo Team" }],
+  alternates: {
+    canonical: "https://www.terzettoo.com/blog/Empowering-Startups-with-Scalable-Web-Development",
+  },
   openGraph: {
     title: "Empowering Startups with Scalable Web Development | Terzettoo",
     description:
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Terzettoo",
     images: [
       {
-        url: "https://www.terzettoo.com/images/Terzettoo_logo_remove_BG.png.jpg",
+        url: "https://www.terzettoo.com/image/blog/EmpoweringStartupswithScalableWebDevelopment.png",
         width: 1200,
         height: 630,
         alt: "Empowering Startups with Scalable Web Development",
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     title: "Empowering Startups with Scalable Web Development | Terzettoo",
     description:
       "How Terzettoo helps startups scale faster with tailored digital solutions using React, Next.js and headless CMS.",
-    images: ["https://www.terzettoo.com/images/startup-web-development.jpg"],
+    images: ["https://www.terzettoo.com/image/blog/EmpoweringStartupswithScalableWebDevelopment.png"],
     creator: "@terzettoo",
   },
   category: "Technology",

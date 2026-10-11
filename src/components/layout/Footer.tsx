@@ -91,7 +91,7 @@ const Footer = () => {
               {[
                 { label: 'About Us', href: '/company/about' },
                 { label: 'Portfolio', href: '/company/portfolio' },
-                { label: 'Careers', href: '/careers' },
+                { label: 'Careers', href: '/career' },
                 { label: 'Blog', href: '/blog' },
                 { label: 'FAQ', href: '/company/faq' },
                 { label: 'Contact', href: '/contact' }
@@ -115,7 +115,9 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <MapPin className="h-6 w-6 mt-0.5 mr-3 !text-white flex-shrink-0" />
-                <span className="!text-white/90">Ahmedabad, Gujarat, India</span>
+                <span className="!text-white/90">
+                  Office No. 809, Mount Bizpark, Tragad, Ahmedabad, Gujarat 382470
+                </span>
               </div>
 
               <div className="flex items-start">
@@ -125,12 +127,9 @@ const Footer = () => {
 
               <div className="flex items-start">
                 <Phone className="h-6 w-6 mt-0.5 mr-3 !text-white" />
-                <span className="!text-white/90">+91 70690 13316</span>
-              </div>
-
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 mt-0.5 mr-3 !text-white" />
-                <span className="!text-white/90">+91 6356 633 868</span>
+                <a href="tel:+917016569676" className="!text-white/90 hover:!text-white hover:underline transition-colors">
+                  +91 7016569676
+                </a>
               </div>
             </div>
           </div>

@@ -81,7 +81,7 @@ export default function FeaturedProjects({ limit, hideFilters = false }: Feature
         {/* Conditionally Render Custom Portfolio Layouts */}
         {selectedCategory === 'Shopify' ? (
           <ShopifyPortfolio />
-        ) : (
+        ) : filteredProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Projects Grid - 3 columns on large screens */}
             {filteredProjects.map((project, index) => (
@@ -167,6 +167,21 @@ export default function FeaturedProjects({ limit, hideFilters = false }: Feature
                 </div>
               </motion.div>
             ))}
+          </div>
+        ) : (
+          <div className="text-center py-16 bg-[#edf2f4] rounded-2xl border border-[#8d99ae]/20 p-8 max-w-xl mx-auto shadow-sm">
+            <h3 className="text-2xl font-bold text-[#2b2d42] mb-3">
+              {selectedCategory} Case Studies
+            </h3>
+            <p className="text-[#8d99ae] mb-6 text-base leading-relaxed">
+              Our enterprise projects in {selectedCategory} are delivered under custom non-disclosure agreements (NDAs). Connect with our team to explore relevant architecture breakdowns, demos, and case studies.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#d90429] text-white font-semibold rounded-xl hover:bg-[#ef233c] transition shadow-md hover:shadow-lg"
+            >
+              Request {selectedCategory} Portfolio
+            </Link>
           </div>
         )}
         

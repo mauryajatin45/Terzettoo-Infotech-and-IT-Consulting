@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "Terzettoo"
   ],
   authors: [{ name: "Terzettoo Leadership Team" }],
+  alternates: {
+    canonical: "https://www.terzettoo.com/blog/trusted-tech-partner",
+  },
   openGraph: {
     title: "Your Trusted Tech Partner: From Idea to Execution | Terzettoo",
     description: "Learn how we transform concepts into market-ready digital products through collaborative development processes.",
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Terzettoo",
     images: [
       {
-        url: "https://www.terzettoo.com/images/tech-partnership.jpg",
+        url: "https://www.terzettoo.com/image/blog/trusted-tech-partner.png",
         width: 1200,
         height: 630,
         alt: "Tech Partnership Process",
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Your Trusted Tech Partner: From Idea to Execution | Terzettoo",
     description: "How we turn your vision into high-performing digital solutions",
-    images: ["https://www.terzettoo.com/images/tech-partnership.jpg"],
+    images: ["https://www.terzettoo.com/image/blog/trusted-tech-partner.png"],
     creator: "@terzettoo",
   },
   category: "Company",

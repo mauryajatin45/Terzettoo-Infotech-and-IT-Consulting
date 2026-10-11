@@ -344,8 +344,8 @@ export default function FAQClient() {
                 Contact Our Team
               </a>
               <a
-                href="tel:+917069013316"
-                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-[#d90429] transition shadow-md hover:shadow-lg"
+                href="tel:+917016569676"
+                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-[#d90429] text-[#d90429] font-bold rounded-xl hover:bg-[#d90429] hover:!text-white transition shadow-md hover:shadow-lg"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call Now

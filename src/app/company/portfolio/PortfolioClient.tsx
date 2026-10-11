@@ -12,7 +12,7 @@ export default function PortfolioClient() {
   return (
     <div className="bg-[#d90429] text-[#2b2d42]">
       {/* Hero Section */}
-      <div className="relative pt-32 pb-20 overflow-hidden h-[vh] max-h-[800px]">
+      <div className="relative pt-32 pb-20 overflow-hidden min-h-[500px] h-[60vh] max-h-[800px]">
         <div className="absolute inset-0 z-0">
           <Image
             src="/image/Portfolio/Project_Hero.webp"

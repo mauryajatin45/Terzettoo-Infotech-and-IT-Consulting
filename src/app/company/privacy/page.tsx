@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Privacy Policy | Terzettoo',
     description: 'Learn how Terzettoo collects, uses, and protects your information.',
-    url: 'https://www.terzettoo.com/privacy-policy',
+    url: 'https://www.terzettoo.com/company/privacy',
     siteName: 'Terzettoo',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.terzettoo.com/privacy-policy',
+    canonical: 'https://www.terzettoo.com/company/privacy',
   },
   robots: {
     index: true,

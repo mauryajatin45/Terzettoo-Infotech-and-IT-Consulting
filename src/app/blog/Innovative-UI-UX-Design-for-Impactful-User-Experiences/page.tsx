@@ -16,14 +16,17 @@ export const metadata: Metadata = {
     "Terzettoo"
   ],
   authors: [{ name: "Terzettoo Design Team" }],
+  alternates: {
+    canonical: "https://www.terzettoo.com/blog/Innovative-UI-UX-Design-for-Impactful-User-Experiences",
+  },
   openGraph: {
     title: "Innovative UI/UX Design for Impactful User Experiences | Terzettoo",
     description: "Discover our approach to creating user-centric designs that drive engagement and business growth.",
-    url: "https://www.terzettoo.com/blog/ui-ux-design-impactful-experiences",
+    url: "https://www.terzettoo.com/blog/Innovative-UI-UX-Design-for-Impactful-User-Experiences",
     siteName: "Terzettoo",
     images: [
       {
-        url: "https://www.terzettoo.com/images/ui-ux-design.jpg",
+        url: "https://www.terzettoo.com/image/blog/Innovative-UI-UX-Design-for-Impactful-User-Experiences.png",
         width: 1200,
         height: 630,
         alt: "Innovative UI/UX Design",
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Innovative UI/UX Design for Impactful User Experiences | Terzettoo",
     description: "How we create user experiences that convert visitors into loyal customers.",
-    images: ["https://www.terzettoo.com/images/ui-ux-design.jpg"],
+    images: ["https://www.terzettoo.com/image/blog/Innovative-UI-UX-Design-for-Impactful-User-Experiences.png"],
     creator: "@terzettoo",
   },
   category: "Design",

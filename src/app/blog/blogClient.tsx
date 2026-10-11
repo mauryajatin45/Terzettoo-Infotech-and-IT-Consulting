@@ -16,6 +16,8 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: 1,
+    imageUrl: "/image/blog/EmpoweringStartupswithScalableWebDevelopment.png",
+    buttonUrl: "/blog/Empowering-Startups-with-Scalable-Web-Development",
     title: "Empowering Startups with Scalable Web Development",
     date: "June 1, 2024",
     category: "Web Development",
@@ -68,7 +70,7 @@ const BlogClient: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-white">Terzetto</span> Insights
+              <span className="text-white">Terzettoo</span> Insights
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 opacity-90">
               Expert perspectives on web development, design, and digital strategy

@@ -50,7 +50,6 @@ export default function ContactClient() {
         },
         body: JSON.stringify({
           ...data,
-          _cc: 'mauryajatin45@gmail.com',
           _subject: `New Contact Form Submission from ${data.name}`,
           _template: 'table',
           _autoresponse: `Thank you for contacting us, ${data.name}! We've received your message and will get back to you within 24 hours.`
@@ -104,7 +103,13 @@ export default function ContactClient() {
               <div>
                 <h3 className="text-2xl font-bold mb-4">Our Location</h3>
                 <p className="leading-relaxed">
-                  Ahmedabad, Gujarat, India - 380005
+                  Office No. 809, Plot No.-146/2, MOUNT BIZPARK,
+                  <br />
+                  Vaishnodevi Circle, Sardar Patel Ring Rd,
+                  <br />
+                  near Malabar Exotica, opp. Dwarkesh Opulence,
+                  <br />
+                  Tragad, Gujarat 382470
                 </p>
               </div>
 
@@ -119,10 +124,10 @@ export default function ContactClient() {
                 <div>
                   <p className="font-semibold">Call Here</p>
                   <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" /> +91 70690 13316
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" /> +91 63566 33868
+                    <Phone className="w-4 h-4" />
+                    <a href="tel:+917016569676" className="!text-white hover:underline">
+                      +91 7016569676
+                    </a>
                   </p>
                 </div>
               </div>
@@ -272,11 +277,12 @@ export default function ContactClient() {
       {/* Google Map Section */}
       <div className="w-full h-[400px]">
         <iframe
-          title="Ahmedabad Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.607220990693!2d72.51637761541935!3d23.068163221063004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f9336e9e25%3A0x48e776a22152891c!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1603274567227!5m2!1sen!2sin"
+          title="Terzettoo Location - Mount Bizpark, Ahmedabad"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4376.073046173677!2d72.5526368!3d23.1328732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e83475371fe33%3A0xfe76307100c314bb!2sMount%20Bizpark!5e1!3m2!1sen!2sin!4v1791693550140!5m2!1sen!2sin"
           className="w-full h-full border-0"
           loading="lazy"
           allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
         ></iframe>
       </div>
     </div>

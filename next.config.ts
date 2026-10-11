@@ -1,11 +1,54 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  env: {
-    Chat_GPT_key: process.env.Chat_GPT_key,
-  },
   // Enable React strict mode for better development experience
   reactStrictMode: true,
+
+  // SEO 301 Permanent Redirects for legacy and variant paths
+  async redirects() {
+    return [
+      {
+        source: '/careers',
+        destination: '/career',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy',
+        destination: '/company/privacy',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-service',
+        destination: '/company/terms',
+        permanent: true,
+      },
+      {
+        source: '/saas-strategy',
+        destination: '/saas-strategy-and-advisory',
+        permanent: true,
+      },
+      {
+        source: '/tech-stack-recommendation',
+        destination: '/tech-stack-recommendations',
+        permanent: true,
+      },
+      {
+        source: '/blog/empowering-startups-with-scalable-web-development',
+        destination: '/blog/Empowering-Startups-with-Scalable-Web-Development',
+        permanent: true,
+      },
+      {
+        source: '/blog/innovative-ui-ux-design-for-impactful-user-experiences',
+        destination: '/blog/Innovative-UI-UX-Design-for-Impactful-User-Experiences',
+        permanent: true,
+      },
+      {
+        source: '/blog/ui-ux-design-impactful-experiences',
+        destination: '/blog/Innovative-UI-UX-Design-for-Impactful-User-Experiences',
+        permanent: true,
+      },
+    ];
+  },
 
   // Image optimization configuration
   images: {
