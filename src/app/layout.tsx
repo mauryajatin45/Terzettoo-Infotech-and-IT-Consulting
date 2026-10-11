@@ -4,7 +4,6 @@ import Script from 'next/script'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
-import Chatbot from '@/components/ui/Chatbot'
 import MetaPixel from '@/components/tracking/MetaPixel'
 
 const inter = Inter({ 
@@ -154,7 +153,6 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
-        <Chatbot />
       </body>
     </html>
   )
