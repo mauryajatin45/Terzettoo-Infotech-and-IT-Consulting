@@ -2,18 +2,31 @@ import OpenAI from 'openai';
 
 export const maxDuration = 60; // Allow sufficient time for AI processing
 
+const MAX_MESSAGES = 20;
+const MAX_CHARS_PER_MESSAGE = 2000;
+const encoder = new TextEncoder();
+
+// Reuse one client per server process instead of creating one per request.
+let openaiClient: OpenAI | null = null;
+function getClient(apiKey: string) {
+  if (!openaiClient) openaiClient = new OpenAI({ apiKey });
+  return openaiClient;
+}
+
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const body = await req.json().catch(() => null);
+    const messages = Array.isArray(body?.messages) ? body.messages : null;
+    if (!messages || messages.length === 0) {
+      return new Response(JSON.stringify({ error: "Invalid request." }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+    }
 
     const apiKey = process.env.Chat_GPT_key;
     if (!apiKey) {
       return new Response(JSON.stringify({ error: "API Key is missing." }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
 
-    const openai = new OpenAI({
-      apiKey,
-    });
+    const openai = getClient(apiKey);
 
     const systemInstruction = `
 You are the official Terzettoo AI Support Assistant.
@@ -44,18 +57,23 @@ Tone: Professional, expert, helpful, and concise. Your goal is to help visitors 
     // Map internal messages array to openai contents
     const formattedMessages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
       { role: 'system', content: systemInstruction },
-      ...messages.map((m: { role: string; content: string }) => ({
+      // Only keep the latest messages and cap their size so a client can't
+      // send huge payloads that sit in server memory (and burn API credits).
+      ...messages.slice(-MAX_MESSAGES).map((m: { role: string; content: unknown }) => ({
         role: m.role === 'user' ? 'user' : 'assistant',
-        content: m.content,
+        content: String(m.content ?? '').slice(0, MAX_CHARS_PER_MESSAGE),
       })),
     ];
 
-    const responseStream = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: formattedMessages,
-      stream: true,
-      temperature: 1, // Adjusted for more focused, factual bot responses
-    });
+    const responseStream = await openai.chat.completions.create(
+      {
+        model: 'gpt-4o-mini',
+        messages: formattedMessages,
+        stream: true,
+        temperature: 1, // Adjusted for more focused, factual bot responses
+      },
+      { signal: req.signal } // stop the upstream call if the visitor disconnects
+    );
 
     // We manually stream chunks using the Vercel AI SDK text protocol (0:"text"\n) 
     // so it perfectly interfaces with the useChat hook on the client.
@@ -66,7 +84,7 @@ Tone: Professional, expert, helpful, and concise. Your goal is to help visitors 
             const content = chunk.choices[0]?.delta?.content;
             if (content) {
               const textChunk = JSON.stringify(content);
-              controller.enqueue(new TextEncoder().encode(`0:${textChunk}\n`));
+              controller.enqueue(encoder.encode(`0:${textChunk}\n`));
             }
           }
           controller.close();
@@ -74,7 +92,11 @@ Tone: Professional, expert, helpful, and concise. Your goal is to help visitors 
           console.error("Stream error:", error);
           controller.error(error);
         }
-      }
+      },
+      cancel() {
+        // Client went away: abort the OpenAI stream so it doesn't keep running.
+        responseStream.controller.abort();
+      },
     });
 
     return new Response(stream, { 

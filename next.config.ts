@@ -51,12 +51,17 @@ const nextConfig: NextConfig = {
   },
 
   // Image optimization configuration
+  // WebP only: AVIF encoding in sharp is far heavier on CPU/RAM and was a main
+  // driver of the server's memory creep. Fewer sizes = fewer variants to generate/cache.
   images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
+    deviceSizes: [640, 828, 1200, 1920],
+    imageSizes: [32, 64, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
+
+  // Cap Next's in-memory cache (default 50 MB) so it can't grow unbounded.
+  cacheMaxMemorySize: 32 * 1024 * 1024,
 
   // Enable compression
   compress: true,
